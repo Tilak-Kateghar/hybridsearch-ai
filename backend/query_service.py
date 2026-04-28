@@ -1,7 +1,7 @@
-from sentence_transformers import util
-from redis_cache import get_cache, set_cache
+from backend.sentence_transformers import util
+from backend.redis_cache import get_cache, set_cache
 import hashlib
-from utils import is_valid_chunk
+from backend.utils import is_valid_chunk
 
 def normalize_query(query: str):
     q = query.lower().strip()

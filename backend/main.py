@@ -1,20 +1,20 @@
 from dotenv import load_dotenv
 load_dotenv()
 
-from fastapi import FastAPI
-from chunker import chunk_text
-from embeddings import model
+from backend.fastapi import FastAPI
+from backend.chunker import chunk_text
+from backend.embeddings import model
 # from hybrid_search import HybridSearch
-from reranker import Reranker
-from query_service import QueryService
-from notes import save_note, get_notes
-from video_service import get_transcript
-from whisper_service import whisper_transcript
+from backend.reranker import Reranker
+from backend.query_service import QueryService
+from backend.notes import save_note, get_notes
+from backend.video_service import get_transcript
+from backend.whisper_service import whisper_transcript
 # from user_store import user_store
-from vector_store import VectorStore
-from redis_cache import redis_client
-from utils import is_valid_chunk
-from fastapi.middleware.cors import CORSMiddleware
+from backend.vector_store import VectorStore
+from backend.redis_cache import redis_client
+from backend.utils import is_valid_chunk
+from backend.fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
