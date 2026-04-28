@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 load_dotenv()
 
-from backend.fastapi import FastAPI
+from fastapi import FastAPI
 from backend.chunker import chunk_text
 from backend.embeddings import model
 # from hybrid_search import HybridSearch
@@ -14,7 +14,7 @@ from backend.whisper_service import whisper_transcript
 from backend.vector_store import VectorStore
 from backend.redis_cache import redis_client
 from backend.utils import is_valid_chunk
-from backend.fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
