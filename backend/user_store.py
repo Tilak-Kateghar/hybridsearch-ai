@@ -1,8 +1,8 @@
 import sqlite3
-from bm25_store import BM25Store
-from faiss_store import FAISSStore
-from hybrid_search import HybridSearch
-from embeddings import model
+from backend.bm25_store import BM25Store
+from backend.faiss_store import FAISSStore
+from backend.hybrid_search import HybridSearch
+from backend.embeddings import model
 
 DB_FILE = "rag.db"
 

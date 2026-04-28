@@ -2,14 +2,14 @@ from ragas import evaluate
 from datasets import Dataset
 from evaluation_data import dataset
 
-from chunker import chunk_text
-from embeddings import model
-from bm25_store import BM25Store
-from faiss_store import FAISSStore
-from hybrid_search import HybridSearch
-from reranker import Reranker
-from query_service import QueryService
-from llm import ask_llm
+from backend.chunker import chunk_text
+from backend.embeddings import model
+from backend.bm25_store import BM25Store
+from backend.faiss_store import FAISSStore
+from backend.hybrid_search import HybridSearch
+from backend.reranker import Reranker
+from backend.query_service import QueryService
+from backend.llm import ask_llm
 from ragas.llms import LangchainLLMWrapper
 from langchain_ollama import OllamaLLM, OllamaEmbeddings
 

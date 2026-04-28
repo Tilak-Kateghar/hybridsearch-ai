@@ -31,9 +31,9 @@ vector_store = VectorStore(model)
 USE_API = True
 
 if USE_API:
-    from llm_api import ask_llm_api as ask_llm
+    from backend.llm_api import ask_llm_api as ask_llm
 else:
-    from llm import ask_llm
+    from backend.llm import ask_llm
 
 reranker = Reranker()
 

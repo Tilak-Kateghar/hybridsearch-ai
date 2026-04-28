@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Text, Float
-from db import Base
+from backend.db import Base
 
 class Document(Base):
     __tablename__ = "documents"
