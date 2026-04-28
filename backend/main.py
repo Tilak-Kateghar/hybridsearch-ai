@@ -1,6 +1,8 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+app = FastAPI()
+
 from fastapi import FastAPI
 from backend.chunker import chunk_text
 from backend.embeddings import model
@@ -15,8 +17,6 @@ from backend.vector_store import VectorStore
 from backend.redis_cache import redis_client
 from backend.utils import is_valid_chunk
 from fastapi.middleware.cors import CORSMiddleware
-
-app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
@@ -41,6 +41,10 @@ def llm_wrapper(prompt):
     return ask_llm(prompt)
 
 query_service = QueryService(None, reranker, llm_wrapper, model)
+
+@app.on_event("startup")
+def startup():
+    print("🚀 SERVER STARTED SUCCESSFULLY")
 
 @app.get("/health")
 def health():
