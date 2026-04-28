@@ -40,34 +40,39 @@
 #     else:
 #         LOCAL_CACHE[key] = value
 
+# import redis
+# import json
+# import os
+
+# redis_client = redis.Redis(
+#     host="localhost",
+#     port=6379,
+#     decode_responses=True
+# )
+
+# print("Redis connected")
+
+
+# def get_cache(key):
+#     try:
+#         value = redis_client.get(key)
+#         if value:
+#             return json.loads(value)
+#     except:
+#         return None
+
+
+# def set_cache(key, value, ttl=1800):
+#     try:
+#         redis_client.setex(
+#             key,
+#             ttl,
+#             json.dumps(value)
+#         )
+#     except:
+#         pass
+
 import redis
-import json
 import os
 
-redis_client = redis.Redis(
-    host="localhost",
-    port=6379,
-    decode_responses=True
-)
-
-print("Redis connected")
-
-
-def get_cache(key):
-    try:
-        value = redis_client.get(key)
-        if value:
-            return json.loads(value)
-    except:
-        return None
-
-
-def set_cache(key, value, ttl=1800):
-    try:
-        redis_client.setex(
-            key,
-            ttl,
-            json.dumps(value)
-        )
-    except:
-        pass
+redis_client = redis.from_url(os.getenv("REDIS_URL"))
